@@ -323,3 +323,70 @@ erDiagram
 
 ### 5.2 Total Amount Calculation
 التكلفة الإجمالية تساوي عدد الليالي مضورب في مجموع اسعار الغرف لللية الواحدة, على سبيل المصال لو أن أحد النزلاء حجز غرفتين لمدة ثلاث ليالي سعر الاولى 100 و الثانية 150 فيكون سعر الغرةف للليلة الواحدة هو 250 مضروب في ثلاث ليالي فيكون المجموع النهائي 750.
+
+### 5.3 Double-Booking Prevention
+إذا كانت فترتا الحجز متداخلتان يمنع النظام الحجز على سبيل المثال لو كان هناك حجز من 15 ديسمبر الى 20 ديسمبر و أتى حجز آخر من 12 ديسمبر ال 18 ديسمر النظام سيرفض الحجز, يمكن للنظام قبول حجز جديد فقط في يوم مغادرة الزبون أي في 20 ديسمبر.
+
+****************************
+
+### 6. Predicted Rest APIs:
+
+### 6.1 Guest :
+    POST = add guest => /api/guests
+    GET = read guests => /api/guests
+    GET = read guest => /api/guests/:id
+### 6.2 Room :
+    POST => /api/rooms
+    GET => /api/rooms/:id
+    PUT => /api/rooms/:id
+
+### 6.3 Employee :
+    POST => /api/employees
+    GET => /api/employees
+
+### 6.4 Booking :
+    POST => /api/bookings
+    GET => /api/bookings
+    PATCH => /api/booking/:id/status
+    PATCH => /api/booking/:id
+
+******************************
+
+### 7. Planned Technology Stack
+
+#### 7.1 Node.js
+هي البيئة العامة اللازمة لتغشيل الجافا سكربت على الحهاز المحمول.
+
+#### 7.2 Express.js
+مكتبة أو اطار عمل يساعد على معالجة الاستجابةةو الطلبات و تطوير الويب.
+
+#### 7.3 MongoDB
+قعدة البيانات التي تعتمد على الوثيقة في التخزين و تسهل معالجة البيانات تو التعامل معها بشكل مرن.
+
+#### 7.4 Mongoose
+مكتبة تاسعد على التعامل مع قواعد البيانات في النود جي اس من خلال تسهيل تنظيم البيانات بشكل أكثر أماناً 
+
+#### 7.5 dotenv
+تتيح المعلومات السرية مثل روابط 
+ قواعد البيانات و كلمات المرور و المافتيح الااسية الخاصة بال APIs و تمنع رفع الملفات السرية بالخطأ على الغيت هاب.
+
+
+****************************
+### 8. Recommended Project Architecture
+
+Hotel-system
+    node_module
+    src
+        models / Guest.js , Employee.js , Room.js , Booking.js
+        config / db.js
+        controller
+        middleware
+        models
+        routes
+        utils
+        app.js
+    .gitignore
+    .env
+    .env.example
+    package.json
+    DATABASE_DESIGN.md
